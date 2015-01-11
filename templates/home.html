@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>{{ title|title }} | Andrew Moore</title>
-</head>
-<body>
-  <div class="main-wrapper">
-    {{ contents | safe }}
-  </div>
-</body>
-</html>
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="main-wrapper">
+  {{ contents | safe }}
+</div>
+{% endblock %}

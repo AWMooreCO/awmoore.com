@@ -3,8 +3,9 @@ build
 npm-debug.log
 node_modules
 
-# Operation System
+# Operating System
 *.tmp
+Thumbs.db
 
 # Sublime Text
 *.sublime-project

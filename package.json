@@ -10,8 +10,13 @@
     "metalsmith": "^1.0.1"
   },
   "devDependencies": {
+    "load-metalsmith-plugins": "^0.1.1",
     "metalsmith": "^1.0.1",
+    "metalsmith-branch": "0.0.4",
+    "metalsmith-collections": "^0.6.0",
+    "metalsmith-filepath": "^1.0.1",
     "metalsmith-markdown": "^0.2.1",
+    "metalsmith-permalinks": "^0.4.0",
     "metalsmith-serve": "0.0.3",
     "metalsmith-templates": "^0.6.0",
     "metalsmith-watch": "^0.2.0",

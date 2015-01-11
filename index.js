@@ -1,10 +1,7 @@
 #!/usr/bin/env node
 
 var Metalsmith = require('metalsmith'),
-    markdown   = require('metalsmith-markdown'),
-    templates  = require('metalsmith-templates'),
-    serve      = require('metalsmith-serve'),
-    watch      = require('metalsmith-watch');
+    plugins    = require('load-metalsmith-plugins')();
 
 var nopt     = require('nopt'),
     noptOpts = { "clean" : Boolean,
@@ -19,39 +16,58 @@ var nopt     = require('nopt'),
 
 var ms = new Metalsmith(__dirname);
 
-ms.clean(options.clean);
-ms.use(templates({
-  engine: 'swig',
-  inPlace: true,
-  pattern: '**/*.md'
-}));
-ms.use(markdown({
-  smartypants: true,
-  gfm: true,
-  tables: true
-}));
-ms.use(templates({
-  engine: 'swig',
-  directory: 'templates/'
-}));
-ms.destination('./build');
+ms
+  .clean(options.clean)
 
-// Launch in Browser
+  // Setup Collections
+  .use(plugins.collections({
+    pages: {
+      pattern: '*/*.md'
+    }
+  }))
+
+  // Parse and Render Templates to Pages
+  .use(plugins.templates({
+    engine: 'swig',
+    inPlace: true,
+    pattern: '**/*.md'
+  }))
+
+  .use(plugins.markdown({
+    smartypants: true,
+    gfm: true,
+    tables: true
+  }))
+
+  .use(plugins.templates({
+    engine: 'swig',
+    directory: 'templates/'
+  }))
+
+  // Files will build from ./src -> ./build
+  .destination('./build');
+
+  // Permalinks
+  // TODO: Figure Out Permalinks
+
+
+// Launch in Browser with '--serve-' or '-s' flag.
 if (options.serve) {
-  ms.use(serve({
+  ms.use(plugins.serve({
     port: 8080,
     verbose: true
   }));
 }
 
-// LiveReload when Launched
+// LiveReload (over Serve) with '--watch' or '-w' flag.
 if (options.watch) {
-  ms.use(watch({
+  ms.use(plugins.watch({
     pattern : '**/*',
     livereload: true
   }));
 }
 
+// Forge the Site; Catch any Errors.
 ms.build(function (err) {
   if (err) {
     throw err && console.log(err);
