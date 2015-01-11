@@ -1,0 +1,11 @@
+# Node / Metalsmith
+build
+npm-debug.log
+node_modules
+
+# Operation System
+*.tmp
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace

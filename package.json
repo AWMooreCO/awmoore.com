@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "name": "awmoore.com",
+  "version": "1.0.0",
+  "description": "Personal Website for Andrew Moore",
+  "author": "Andrew Moore <andrew@awmoore.com>",
+  "homepage": "http://www.awmoore.com/",
+  "main": "index.js",
+  "dependencies": {
+    "metalsmith": "^1.0.1"
+  },
+  "devDependencies": {
+    "metalsmith": "^1.0.1",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-serve": "0.0.3",
+    "metalsmith-templates": "^0.6.0",
+    "metalsmith-watch": "^0.2.0",
+    "nopt": "^3.0.1",
+    "swig": "^1.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AWMooreCO/awmoore.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AWMooreCO/awmoore.com/issues"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
