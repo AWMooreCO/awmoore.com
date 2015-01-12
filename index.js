@@ -22,7 +22,12 @@ ms
   // Setup Collections
   .use(plugins.collections({
     pages: {
-      pattern: '*/*.md'
+      pattern: 'content/pages/*.md'
+    },
+    posts: {
+      pattern: 'content/posts/*.md',
+      sortBy: 'date',
+      reverse: true
     }
   }))
 
@@ -34,9 +39,11 @@ ms
   }))
 
   .use(plugins.markdown({
-    smartypants: true,
     gfm: true,
-    tables: true
+    tables: true,
+    breaks: true,
+    smartLists: true,
+    smartypants: true
   }))
 
   .use(plugins.templates({
@@ -45,10 +52,13 @@ ms
   }))
 
   // Files will build from ./src -> ./build
-  .destination('./build');
+  .destination('./build')
 
   // Permalinks
-  // TODO: Figure Out Permalinks
+  .use(plugins.permalinks({
+    pattern: ':collection/:title',
+    relative: true
+  }));
 
 
 // Launch in Browser with '--serve-' or '-s' flag.
