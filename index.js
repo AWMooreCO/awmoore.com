@@ -32,6 +32,13 @@ ms
   }))
 
   // Parse and Render Templates to Pages
+  .use(plugins.less({
+    parse: {
+      paths: ['./src/assets/less'],
+      compress: false
+    }
+  }))
+
   .use(plugins.templates({
     engine: 'swig',
     inPlace: true,

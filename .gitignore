@@ -1,7 +1,8 @@
-# Node / Metalsmith
+# Node / Bower
 build
 npm-debug.log
 node_modules
+bower_components
 
 # Operating System
 *.tmp

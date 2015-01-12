@@ -1,0 +1,23 @@
+{
+  "name": "awmoore.com",
+  "main": "index.js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/AWMooreCO/awmoore.com",
+  "authors": [
+    "Andrew Moore <github@awmoore.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.1"
+  }
+}
