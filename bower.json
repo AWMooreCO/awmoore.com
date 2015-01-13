@@ -1,15 +1,15 @@
 {
+  "private": true,
   "name": "awmoore.com",
-  "main": "index.js",
-  "version": "1.0.0",
-  "homepage": "https://github.com/AWMooreCO/awmoore.com",
+  "description": "Personal Website for Andrew Moore",
   "authors": [
     "Andrew Moore <github@awmoore.com>"
   ],
+  "homepage": "https://github.com/AWMooreCO/awmoore.com",
+  "main": "build.js",
   "moduleType": [
     "node"
   ],
-  "private": true,
   "ignore": [
     "**/.*",
     "node_modules",

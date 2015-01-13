@@ -5,11 +5,17 @@
   "description": "Personal Website for Andrew Moore",
   "author": "Andrew Moore <andrew@awmoore.com>",
   "homepage": "http://www.awmoore.com/",
-  "main": "index.js",
-  "dependencies": {
-    "metalsmith": "^1.0.1"
+  "main": "build.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AWMooreCO/awmoore.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AWMooreCO/awmoore.com/issues"
   },
   "devDependencies": {
+    "browserify": "^8.1.0",
+    "browserify-shim": "^3.8.2",
     "load-metalsmith-plugins": "^0.1.1",
     "metalsmith": "^1.0.1",
     "metalsmith-branch": "0.0.4",
@@ -24,14 +30,19 @@
     "nopt": "^3.0.1",
     "swig": "^1.4.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/AWMooreCO/awmoore.com.git"
+  "browser": {
+    "bootstrap": "./bower_components/bootstrap/dist/js/bootstrap.js",
+    "jQuery": "./bower_components/jquery/dist/jquery.min.js"
   },
-  "bugs": {
-    "url": "https://github.com/AWMooreCO/awmoore.com/issues"
+  "browserify": {
+    "transform": ["browserify-shim"]
   },
-  "scripts": {
-    "start": "node index.js"
+  "browserify-shim": {
+    "jquery": "global:jQuery",
+    "bootstrap": {
+      "depends": [
+        "jQuery"
+      ]
+    }
   }
 }
